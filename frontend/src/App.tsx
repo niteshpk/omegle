@@ -1,11 +1,9 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Landing } from './components/Landing';
-import { Room } from './components/Room';
+import { Landing } from "./components/Landing";
 import { ToastProvider } from "react-toast-notifications";
+import "./App.css";
 
 function App() {
-
   return (
     <ToastProvider>
       <BrowserRouter>
@@ -14,7 +12,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ToastProvider>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -265,11 +265,43 @@ export const Room = ({
   }, [localVideoRef]);
 
   return (
-    <div>
-      Hi {name}
-      <video autoPlay width={400} height={400} ref={localVideoRef} />
-      {lobby ? "Waiting to connect you to someone" : null}
-      <video autoPlay width={400} height={400} ref={remoteVideoRef} />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">
+        Welcome, {name}!
+      </h1>
+      <div className="flex flex-wrap justify-center gap-6 w-full max-w-4xl">
+        <div className="flex flex-col items-center">
+          <h2 className="text-lg font-semibold text-gray-700 mb-2">
+            Your Video
+          </h2>
+          <video
+            autoPlay
+            width={400}
+            height={400}
+            ref={localVideoRef}
+            className="rounded-md shadow-lg border border-gray-300"
+          />
+        </div>
+        <div className="flex flex-col items-center">
+          <h2 className="text-lg font-semibold text-gray-700 mb-2">
+            Remote Video
+          </h2>
+          <video
+            autoPlay
+            width={400}
+            height={400}
+            ref={remoteVideoRef}
+            className="rounded-md shadow-lg border border-gray-300"
+          />
+        </div>
+      </div>
+      {lobby && (
+        <div className="mt-6 text-center">
+          <p className="text-gray-600 bg-yellow-100 px-4 py-2 rounded-md shadow-sm">
+            Waiting to connect you to someone...
+          </p>
+        </div>
+      )}
     </div>
   );
 };

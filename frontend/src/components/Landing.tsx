@@ -88,32 +88,33 @@ export const Landing = () => {
 
   if (!joined) {
     return (
-      <div>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
         <video
           autoPlay
           ref={videoRef}
-          style={{
-            height: "480px",
-            width: "640px",
-            borderRadius: "8px",
-            border: "2px solid #ccc",
-          }}
+          className="w-full max-w-lg h-auto rounded-lg border-2 border-gray-300 shadow-lg mb-6"
           aria-label="User camera feed"
         ></video>
 
         {permissionGranted ? (
-          <div>
+          <div className="flex flex-col items-center gap-4">
             <input
               type="text"
               placeholder="Enter your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-            ></input>
-            <button onClick={handleJoin}>Join</button>
+              className="w-full max-w-md p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+            <button
+              onClick={handleJoin}
+              className="bg-red-500 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition"
+            >
+              Join
+            </button>
           </div>
         ) : (
-          <div>
-            <p>Waiting for Camera and Microphone access</p>
+          <div className="text-center bg-yellow-100 text-yellow-800 px-4 py-3 rounded-lg shadow-md">
+            <p>Waiting for Camera and Microphone access...</p>
           </div>
         )}
       </div>
